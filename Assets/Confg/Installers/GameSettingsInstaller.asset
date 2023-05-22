@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc09305c4e54f60b9bb217a9867d631, type: 3}
+  m_Name: GameSettingsInstaller
+  m_EditorClassIdentifier: 
+  prefabsBase: {fileID: 11400000, guid: edc274d0f36de4d969733574248f4b14, type: 2}
+  objectBase: {fileID: 11400000, guid: 3633a91c368d140b4bdd2c2438909b51, type: 2}
+  fxObjectBase: {fileID: 11400000, guid: 5d4c704d0c3a944dc8d391d915744bf0, type: 2}
+  catParametersBase: {fileID: 11400000, guid: 21fa7d5c69e36cfbaa4fe92422664071, type: 2}
+  catInteractionParametersBase: {fileID: 11400000, guid: 7fe3e74db06f89b63b1441f4afdaaa31, type: 2}
