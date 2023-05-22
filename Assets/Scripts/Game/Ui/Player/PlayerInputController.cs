@@ -1,8 +1,6 @@
 using JCMG.EntitasRedux;
 using PdUtils.Interfaces;
 using SimpleUi.Abstracts;
-using UniRx;
-using UniRx.Triggers;
 using UnityEngine;
 
 namespace Game.Ui.Player
@@ -11,8 +9,6 @@ namespace Game.Ui.Player
     {
         private readonly ActionContext _action;
         private readonly GameContext _game;
-
-        private Vector2 _previousDirection;
 
         public PlayerInputController(
             ActionContext action,
@@ -25,34 +21,18 @@ namespace Game.Ui.Player
 
         public void Initialize()
         {
-            View.MoveDown.OnPointerDownAsObservable().Subscribe(_ => { OnMove(Vector2.down); }).AddTo(View);
-            View.MoveDown.OnPointerUpAsObservable().Subscribe(_ => { OnMove(Vector2.zero); }).AddTo(View);
-            
-            View.MoveUp.OnPointerDownAsObservable().Subscribe(_ => { OnMove(Vector2.up); }).AddTo(View);
-            View.MoveUp.OnPointerUpAsObservable().Subscribe(_ => { OnMove(Vector2.zero); }).AddTo(View);
-            
-            View.MoveLeft.OnPointerDownAsObservable().Subscribe(_ => { OnMove(Vector2.left); }).AddTo(View);
-            View.MoveLeft.OnPointerUpAsObservable().Subscribe(_ => { OnMove(Vector2.zero); }).AddTo(View);
-            
-            View.MoveRight.OnPointerDownAsObservable().Subscribe(_ => { OnMove(Vector2.right); }).AddTo(View);
-            View.MoveRight.OnPointerUpAsObservable().Subscribe(_ => { OnMove(Vector2.zero); }).AddTo(View);
-            
-            View.Shoot.OnPointerDownAsObservable().Subscribe(_ => { OnShoot(); }).AddTo(View);
+
         }
 
         public void Update()
         {
-            _action.CreateEntity().AddMovePlayer(_previousDirection);
-        }
-        
-        private void OnMove(Vector2 direction)
-        {
-            _previousDirection = direction;
-        }
+            var dirToMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            _action.CreateEntity().AddMovePlayer(dirToMove);
 
-        private void OnShoot()
-        {
-            _action.CreateEntity().AddShoot(_game.PlayerEntity.Uid.Value);
+            if (Input.GetButtonDown("Fire1"))
+            {
+                _action.CreateEntity().AddShoot(_game.PlayerEntity.Uid.Value);
+            }
         }
     }
 }
