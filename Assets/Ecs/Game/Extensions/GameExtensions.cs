@@ -35,6 +35,7 @@ namespace Ecs.Game.Extensions
             entity.AddUid(UidGenerator.Next());
             entity.AddPosition(position);
             entity.AddRotation(rotation);
+            entity.AddVelocity(Vector3.one);
 
             entity.IsPlayer = true;
             

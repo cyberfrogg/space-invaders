@@ -31,7 +31,7 @@ namespace Installers.Project
 		public override void InstallBindings()
 		{
 			MainThreadDispatcher.Initialize();
-			Application.targetFrameRate = 30;
+			Application.targetFrameRate = 60;
 
 			Container.BindInterfacesTo<UnityRandomProvider>().AsSingle();
 			Container.BindInterfacesTo<LoadingProcessor>().AsSingle();

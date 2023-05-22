@@ -18,11 +18,7 @@ public partial class InputEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Input.Components.JumpComponent Jump)
-		{
-			IsJump = true;
-		}
-		else if (component is Ecs.Common.Components.DestroyedComponent Destroyed)
+		if (component is Ecs.Common.Components.DestroyedComponent Destroyed)
 		{
 			IsDestroyed = true;
 		}

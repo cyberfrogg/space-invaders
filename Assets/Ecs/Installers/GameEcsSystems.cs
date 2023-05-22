@@ -1,9 +1,11 @@
 using Ecs.Signal.Systems;
 using Ecs.Scheduler.Systems;
 using Ecs.Game.Systems;
+using Ecs.Game.Systems.Player;
 using Ecs.Game.Systems.Initialize;
 using Ecs.Game.Systems.Camera;
 using Ecs.Core;
+using Ecs.Action.Systems;
 
 using Zenject; 
 using Ecs.Utils; 
@@ -46,8 +48,14 @@ namespace Ecs.Installers {
 			// Initialization 0030
 			SystemInstallHelper.Install<PlayerInitializeSystem>(container);	// 0030 Initialization
 
+			// Move 0300
+			SystemInstallHelper.Install<PlayerMovementSystem>(container);	// 0300 Move
+
 			// Initialization 0700
 			SystemInstallHelper.Install<InstantiateSystem>(container);	// 0700 Initialization
+
+			// Move 0900
+			SystemInstallHelper.Install<MoveSystem>(container);	// 0900 Move
 
 			// Scheduler 1970
 			SystemInstallHelper.Install<ExecuteScheduledActionSystem>(container);	// 1970 Scheduler

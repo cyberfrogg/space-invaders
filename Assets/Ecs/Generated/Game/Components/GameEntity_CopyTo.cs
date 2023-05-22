@@ -26,6 +26,22 @@ public partial class GameEntity
 		{
 			CopyObjectTypeTo(ObjectType);
 		}
+		else if (component is Ecs.Game.Components.PlayerParametersComponent PlayerParameters)
+		{
+			CopyPlayerParametersTo(PlayerParameters);
+		}
+		else if (component is Ecs.Game.Components.EnemyParametersComponent EnemyParameters)
+		{
+			CopyEnemyParametersTo(EnemyParameters);
+		}
+		else if (component is Ecs.Game.Components.EnemyComponent Enemy)
+		{
+			CopyEnemyTo(Enemy);
+		}
+		else if (component is Ecs.Game.Components.HealthComponent Health)
+		{
+			CopyHealthTo(Health);
+		}
 		else if (component is Ecs.Game.Components.LookDirectionComponent LookDirection)
 		{
 			CopyLookDirectionTo(LookDirection);
@@ -89,6 +105,14 @@ public partial class GameEntity
 		else if (component is ObjectTypeAddedListenerComponent ObjectTypeAddedListener)
 		{
 			CopyObjectTypeAddedListenerTo(ObjectTypeAddedListener);
+		}
+		else if (component is HealthAddedListenerComponent HealthAddedListener)
+		{
+			CopyHealthAddedListenerTo(HealthAddedListener);
+		}
+		else if (component is HealthRemovedListenerComponent HealthRemovedListener)
+		{
+			CopyHealthRemovedListenerTo(HealthRemovedListener);
 		}
 		else if (component is PositionAddedListenerComponent PositionAddedListener)
 		{

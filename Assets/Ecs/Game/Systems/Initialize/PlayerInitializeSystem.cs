@@ -31,7 +31,13 @@ namespace Ecs.Game.Systems.Initialize
 
         public void Initialize()
         {
-
+            var playerView = _gameFieldProvider.GameField.PlayerView;
+            var playerTransform = playerView.transform;
+            var player = _game.CreatePlayer(playerTransform.position, playerTransform.rotation);
+            
+            playerView.Link(player, _game);
+            _linkedEntityRepository.Add(playerTransform.GetHashCode(), player);
+            _diContainer.Inject(playerView);
         }
     }
 }

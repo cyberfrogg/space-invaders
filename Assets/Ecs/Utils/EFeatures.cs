@@ -6,6 +6,6 @@ namespace Ecs.Utils
 		Common,
 		Camera,
 		Scheduler,
-		Cat
+		Move
 	}
 }

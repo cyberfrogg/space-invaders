@@ -1,3 +1,5 @@
+using Game.Ui.Player;
+using SimpleUi;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +11,8 @@ namespace Installers.Game
     {
         [SerializeField] private Canvas canvas;
 
+        [SerializeField] private PlayerInputView playerInputView;
+
         public override void InstallBindings()
         {
             var canvasView = Container.InstantiatePrefabForComponent<Canvas>(canvas);
@@ -16,6 +20,7 @@ namespace Installers.Game
             
             var camera = canvasTransform.GetComponentInChildren<Camera>();
             
+            Container.BindUiView<PlayerInputController, PlayerInputView>(playerInputView, canvasTransform);
         }
     }
 }
