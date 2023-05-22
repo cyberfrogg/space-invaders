@@ -26,22 +26,6 @@ public partial class GameEntity
 		{
 			CopyObjectTypeTo(ObjectType);
 		}
-		else if (component is Ecs.Game.Components.DeadComponent Dead)
-		{
-			IsDead = true;
-		}
-		else if (component is Ecs.Game.Components.BulletComponent Bullet)
-		{
-			CopyBulletTo(Bullet);
-		}
-		else if (component is Ecs.Game.Components.OwnerComponent Owner)
-		{
-			CopyOwnerTo(Owner);
-		}
-		else if (component is Ecs.Game.Components.ActiveBulletTypeComponent ActiveBulletType)
-		{
-			CopyActiveBulletTypeTo(ActiveBulletType);
-		}
 		else if (component is Ecs.Game.Components.LookDirectionComponent LookDirection)
 		{
 			CopyLookDirectionTo(LookDirection);
@@ -53,6 +37,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.UidComponent Uid)
 		{
 			CopyUidTo(Uid);
+		}
+		else if (component is Ecs.Game.Components.OwnerComponent Owner)
+		{
+			CopyOwnerTo(Owner);
 		}
 		else if (component is Ecs.Game.Components.VelocityComponent Velocity)
 		{
@@ -74,6 +62,14 @@ public partial class GameEntity
 		{
 			CopyHealthTo(Health);
 		}
+		else if (component is Ecs.Game.Components.DeadComponent Dead)
+		{
+			IsDead = true;
+		}
+		else if (component is Ecs.Game.Components.ActiveBulletTypeComponent ActiveBulletType)
+		{
+			CopyActiveBulletTypeTo(ActiveBulletType);
+		}
 		else if (component is Ecs.Game.Components.EnemyParametersComponent EnemyParameters)
 		{
 			CopyEnemyParametersTo(EnemyParameters);
@@ -85,6 +81,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.PrefabComponent Prefab)
 		{
 			CopyPrefabTo(Prefab);
+		}
+		else if (component is Ecs.Game.Components.BulletComponent Bullet)
+		{
+			CopyBulletTo(Bullet);
 		}
 		else if (component is Ecs.Game.Components.LocalPositionComponent LocalPosition)
 		{
@@ -122,18 +122,6 @@ public partial class GameEntity
 		{
 			CopyObjectTypeAddedListenerTo(ObjectTypeAddedListener);
 		}
-		else if (component is DeadAddedListenerComponent DeadAddedListener)
-		{
-			CopyDeadAddedListenerTo(DeadAddedListener);
-		}
-		else if (component is DeadRemovedListenerComponent DeadRemovedListener)
-		{
-			CopyDeadRemovedListenerTo(DeadRemovedListener);
-		}
-		else if (component is AnyActiveBulletTypeAddedListenerComponent AnyActiveBulletTypeAddedListener)
-		{
-			CopyAnyActiveBulletTypeAddedListenerTo(AnyActiveBulletTypeAddedListener);
-		}
 		else if (component is PositionAddedListenerComponent PositionAddedListener)
 		{
 			CopyPositionAddedListenerTo(PositionAddedListener);
@@ -149,6 +137,18 @@ public partial class GameEntity
 		else if (component is HealthRemovedListenerComponent HealthRemovedListener)
 		{
 			CopyHealthRemovedListenerTo(HealthRemovedListener);
+		}
+		else if (component is DeadAddedListenerComponent DeadAddedListener)
+		{
+			CopyDeadAddedListenerTo(DeadAddedListener);
+		}
+		else if (component is DeadRemovedListenerComponent DeadRemovedListener)
+		{
+			CopyDeadRemovedListenerTo(DeadRemovedListener);
+		}
+		else if (component is AnyActiveBulletTypeAddedListenerComponent AnyActiveBulletTypeAddedListener)
+		{
+			CopyAnyActiveBulletTypeAddedListenerTo(AnyActiveBulletTypeAddedListener);
 		}
 		else if (component is LocalPositionAddedListenerComponent LocalPositionAddedListener)
 		{

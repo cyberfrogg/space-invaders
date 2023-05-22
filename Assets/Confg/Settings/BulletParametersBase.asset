@@ -17,14 +17,9 @@ MonoBehaviour:
     PrefabName: Bullet_Small
     DespawnDelay: 5
     Damage: 50
-    InitialVelocity: {x: 0, y: 18, z: 0}
+    InitialSpeed: 18
   - Type: 1
-    PrefabName: Bullet_Mid
-    DespawnDelay: 5
-    Damage: 70
-    InitialVelocity: {x: 0, y: 18, z: 0}
-  - Type: 2
     PrefabName: Bullet_Big
     DespawnDelay: 10
     Damage: 100
-    InitialVelocity: {x: 0, y: 12, z: 0}
+    InitialSpeed: 12

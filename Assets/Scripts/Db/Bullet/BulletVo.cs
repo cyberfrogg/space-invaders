@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace Db.Bullet
 {
@@ -10,6 +9,6 @@ namespace Db.Bullet
         public string PrefabName;
         public float DespawnDelay;
         public float Damage;
-        public Vector3 InitialVelocity;
+        public float InitialSpeed;
     }
 }

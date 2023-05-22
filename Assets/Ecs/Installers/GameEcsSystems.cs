@@ -55,7 +55,7 @@ namespace Ecs.Installers {
 			SystemInstallHelper.Install<PlayerMovementSystem>(container);	// 0300 Move
 			SystemInstallHelper.Install<EnemyDeathSystem>(container);	// 0300 Enemy
 			SystemInstallHelper.Install<BulletMovementSystem>(container);	// 0300 Shooting
-			SystemInstallHelper.Install<ShootPlayerSpawnBulletSystem>(container);	// 0300 Shooting
+			SystemInstallHelper.Install<PlayerShootSystem>(container);	// 0300 Shooting
 
 			// Initialization 0700
 			SystemInstallHelper.Install<InstantiateSystem>(container);	// 0700 Initialization

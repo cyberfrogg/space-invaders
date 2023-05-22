@@ -15,8 +15,7 @@ namespace Db.Bullet.Impl
         {
             foreach (var bullet in _allBullets)
             {
-                if (bullet.Type != bulletType)
-
+                if (bullet.Type == bulletType)
                     return bullet;
             }
 

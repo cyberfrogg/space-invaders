@@ -45,13 +45,13 @@ namespace Ecs.Game.Extensions
             return entity;
         }
         
-        public static GameEntity CreateBullet(this GameContext context, Uid owner, BulletVo bulletVo, Vector3 position, Quaternion rotation)
+        public static GameEntity CreateBullet(this GameContext context, Uid owner, Vector2 initialVelocityDirection, BulletVo bulletVo, Vector3 position, Quaternion rotation)
         {
             var entity = context.CreateEntity();
             entity.AddUid(UidGenerator.Next());
             entity.AddPosition(position);
             entity.AddRotation(rotation);
-            entity.AddVelocity(bulletVo.InitialVelocity);
+            entity.AddVelocity(initialVelocityDirection * bulletVo.InitialSpeed);
             entity.AddOwner(owner);
             entity.AddBullet(bulletVo);
             

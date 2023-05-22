@@ -8,17 +8,18 @@ using Ecs.Views.Linkable.Impl;
 using InstallerGenerator.Attributes;
 using InstallerGenerator.Enums;
 using JCMG.EntitasRedux;
+using UnityEngine;
 
 namespace Ecs.Action.Systems.Shoot
 {
     [Install(ExecutionType.Game, ExecutionPriority.Normal, 300, nameof(EFeatures.Shooting))]
-    public class ShootPlayerSpawnBulletSystem : AReactiveSystemWithPool<ActionEntity>
+    public class PlayerShootSystem : AReactiveSystemWithPool<ActionEntity>
     {
         private readonly GameContext _game;
         private readonly SchedulerContext _scheduler;
         private readonly IBulletParametersBase _bulletParametersBase;
 
-        public ShootPlayerSpawnBulletSystem(
+        public PlayerShootSystem(
             ActionContext action,
             GameContext game,
             SchedulerContext scheduler,
@@ -55,7 +56,7 @@ namespace Ecs.Action.Systems.Shoot
             var bulletSpawnPoint = playerView.BulletSpawnPoint;
             
             var bulletVo = _bulletParametersBase.GetBullet(player.ActiveBulletType.Value);
-            var bullet = _game.CreateBullet(player.Uid.Value, bulletVo, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            var bullet = _game.CreateBullet(player.Uid.Value, Vector2.up, bulletVo, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
             _scheduler.CreateTimerAction(() =>
             {
