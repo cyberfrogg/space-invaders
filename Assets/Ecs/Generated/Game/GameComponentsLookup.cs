@@ -13,46 +13,53 @@ using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
 {
-	public const int CountAddedListener = 0;
-	public const int CountRemovedListener = 1;
-	public const int Destroyed = 2;
-	public const int ObjectType = 3;
-	public const int Camera = 4;
-	public const int Count = 5;
-	public const int Enemy = 6;
-	public const int EnemyParameters = 7;
-	public const int Health = 8;
-	public const int Instantiate = 9;
-	public const int Link = 10;
-	public const int LocalPosition = 11;
-	public const int LookDirection = 12;
-	public const int LookPoint = 13;
-	public const int Player = 14;
-	public const int PlayerParameters = 15;
-	public const int Position = 16;
-	public const int Prefab = 17;
-	public const int Rotation = 18;
-	public const int Transform = 19;
-	public const int Uid = 20;
-	public const int Velocity = 21;
-	public const int GameDestroyedAddedListener = 22;
-	public const int HealthAddedListener = 23;
-	public const int HealthRemovedListener = 24;
-	public const int LinkRemovedListener = 25;
-	public const int LocalPositionAddedListener = 26;
-	public const int ObjectTypeAddedListener = 27;
-	public const int PositionAddedListener = 28;
-	public const int RotationAddedListener = 29;
-	public const int VelocityAddedListener = 30;
+	public const int AnyActiveBulletTypeAddedListener = 0;
+	public const int CountAddedListener = 1;
+	public const int CountRemovedListener = 2;
+	public const int Destroyed = 3;
+	public const int ObjectType = 4;
+	public const int ActiveBulletType = 5;
+	public const int Bullet = 6;
+	public const int Camera = 7;
+	public const int Count = 8;
+	public const int Enemy = 9;
+	public const int EnemyParameters = 10;
+	public const int Health = 11;
+	public const int Instantiate = 12;
+	public const int Link = 13;
+	public const int LocalPosition = 14;
+	public const int LookDirection = 15;
+	public const int LookPoint = 16;
+	public const int Owner = 17;
+	public const int Player = 18;
+	public const int PlayerParameters = 19;
+	public const int Position = 20;
+	public const int Prefab = 21;
+	public const int Rotation = 22;
+	public const int Transform = 23;
+	public const int Uid = 24;
+	public const int Velocity = 25;
+	public const int GameDestroyedAddedListener = 26;
+	public const int HealthAddedListener = 27;
+	public const int HealthRemovedListener = 28;
+	public const int LinkRemovedListener = 29;
+	public const int LocalPositionAddedListener = 30;
+	public const int ObjectTypeAddedListener = 31;
+	public const int PositionAddedListener = 32;
+	public const int RotationAddedListener = 33;
+	public const int VelocityAddedListener = 34;
 
-	public const int TotalComponents = 31;
+	public const int TotalComponents = 35;
 
 	public static readonly string[] ComponentNames =
 	{
+		"AnyActiveBulletTypeAddedListener",
 		"CountAddedListener",
 		"CountRemovedListener",
 		"Destroyed",
 		"ObjectType",
+		"ActiveBulletType",
+		"Bullet",
 		"Camera",
 		"Count",
 		"Enemy",
@@ -63,6 +70,7 @@ public static class GameComponentsLookup
 		"LocalPosition",
 		"LookDirection",
 		"LookPoint",
+		"Owner",
 		"Player",
 		"PlayerParameters",
 		"Position",
@@ -84,10 +92,13 @@ public static class GameComponentsLookup
 
 	public static readonly System.Type[] ComponentTypes =
 	{
+		typeof(AnyActiveBulletTypeAddedListenerComponent),
 		typeof(CountAddedListenerComponent),
 		typeof(CountRemovedListenerComponent),
 		typeof(Ecs.Common.Components.DestroyedComponent),
 		typeof(Ecs.Common.Components.ObjectTypeComponent),
+		typeof(Ecs.Game.Components.ActiveBulletTypeComponent),
+		typeof(Ecs.Game.Components.BulletComponent),
 		typeof(Ecs.Game.Components.CameraComponent),
 		typeof(Ecs.Game.Components.CountComponent),
 		typeof(Ecs.Game.Components.EnemyComponent),
@@ -98,6 +109,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.LocalPositionComponent),
 		typeof(Ecs.Game.Components.LookDirectionComponent),
 		typeof(Ecs.Game.Components.LookPointComponent),
+		typeof(Ecs.Game.Components.OwnerComponent),
 		typeof(Ecs.Game.Components.PlayerComponent),
 		typeof(Ecs.Game.Components.PlayerParametersComponent),
 		typeof(Ecs.Game.Components.PositionComponent),
@@ -119,37 +131,41 @@ public static class GameComponentsLookup
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(CountAddedListenerComponent), 0 },
-		{ typeof(CountRemovedListenerComponent), 1 },
-		{ typeof(Ecs.Common.Components.DestroyedComponent), 2 },
-		{ typeof(Ecs.Common.Components.ObjectTypeComponent), 3 },
-		{ typeof(Ecs.Game.Components.CameraComponent), 4 },
-		{ typeof(Ecs.Game.Components.CountComponent), 5 },
-		{ typeof(Ecs.Game.Components.EnemyComponent), 6 },
-		{ typeof(Ecs.Game.Components.EnemyParametersComponent), 7 },
-		{ typeof(Ecs.Game.Components.HealthComponent), 8 },
-		{ typeof(Ecs.Game.Components.InstantiateComponent), 9 },
-		{ typeof(Ecs.Game.Components.LinkComponent), 10 },
-		{ typeof(Ecs.Game.Components.LocalPositionComponent), 11 },
-		{ typeof(Ecs.Game.Components.LookDirectionComponent), 12 },
-		{ typeof(Ecs.Game.Components.LookPointComponent), 13 },
-		{ typeof(Ecs.Game.Components.PlayerComponent), 14 },
-		{ typeof(Ecs.Game.Components.PlayerParametersComponent), 15 },
-		{ typeof(Ecs.Game.Components.PositionComponent), 16 },
-		{ typeof(Ecs.Game.Components.PrefabComponent), 17 },
-		{ typeof(Ecs.Game.Components.RotationComponent), 18 },
-		{ typeof(Ecs.Game.Components.TransformComponent), 19 },
-		{ typeof(Ecs.Game.Components.UidComponent), 20 },
-		{ typeof(Ecs.Game.Components.VelocityComponent), 21 },
-		{ typeof(GameDestroyedAddedListenerComponent), 22 },
-		{ typeof(HealthAddedListenerComponent), 23 },
-		{ typeof(HealthRemovedListenerComponent), 24 },
-		{ typeof(LinkRemovedListenerComponent), 25 },
-		{ typeof(LocalPositionAddedListenerComponent), 26 },
-		{ typeof(ObjectTypeAddedListenerComponent), 27 },
-		{ typeof(PositionAddedListenerComponent), 28 },
-		{ typeof(RotationAddedListenerComponent), 29 },
-		{ typeof(VelocityAddedListenerComponent), 30 }
+		{ typeof(AnyActiveBulletTypeAddedListenerComponent), 0 },
+		{ typeof(CountAddedListenerComponent), 1 },
+		{ typeof(CountRemovedListenerComponent), 2 },
+		{ typeof(Ecs.Common.Components.DestroyedComponent), 3 },
+		{ typeof(Ecs.Common.Components.ObjectTypeComponent), 4 },
+		{ typeof(Ecs.Game.Components.ActiveBulletTypeComponent), 5 },
+		{ typeof(Ecs.Game.Components.BulletComponent), 6 },
+		{ typeof(Ecs.Game.Components.CameraComponent), 7 },
+		{ typeof(Ecs.Game.Components.CountComponent), 8 },
+		{ typeof(Ecs.Game.Components.EnemyComponent), 9 },
+		{ typeof(Ecs.Game.Components.EnemyParametersComponent), 10 },
+		{ typeof(Ecs.Game.Components.HealthComponent), 11 },
+		{ typeof(Ecs.Game.Components.InstantiateComponent), 12 },
+		{ typeof(Ecs.Game.Components.LinkComponent), 13 },
+		{ typeof(Ecs.Game.Components.LocalPositionComponent), 14 },
+		{ typeof(Ecs.Game.Components.LookDirectionComponent), 15 },
+		{ typeof(Ecs.Game.Components.LookPointComponent), 16 },
+		{ typeof(Ecs.Game.Components.OwnerComponent), 17 },
+		{ typeof(Ecs.Game.Components.PlayerComponent), 18 },
+		{ typeof(Ecs.Game.Components.PlayerParametersComponent), 19 },
+		{ typeof(Ecs.Game.Components.PositionComponent), 20 },
+		{ typeof(Ecs.Game.Components.PrefabComponent), 21 },
+		{ typeof(Ecs.Game.Components.RotationComponent), 22 },
+		{ typeof(Ecs.Game.Components.TransformComponent), 23 },
+		{ typeof(Ecs.Game.Components.UidComponent), 24 },
+		{ typeof(Ecs.Game.Components.VelocityComponent), 25 },
+		{ typeof(GameDestroyedAddedListenerComponent), 26 },
+		{ typeof(HealthAddedListenerComponent), 27 },
+		{ typeof(HealthRemovedListenerComponent), 28 },
+		{ typeof(LinkRemovedListenerComponent), 29 },
+		{ typeof(LocalPositionAddedListenerComponent), 30 },
+		{ typeof(ObjectTypeAddedListenerComponent), 31 },
+		{ typeof(PositionAddedListenerComponent), 32 },
+		{ typeof(RotationAddedListenerComponent), 33 },
+		{ typeof(VelocityAddedListenerComponent), 34 }
 	};
 
 	/// <summary>

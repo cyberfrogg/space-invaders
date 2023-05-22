@@ -1,5 +1,5 @@
-using Db.Cat;
-using Db.Cat.Impl;
+using Db.Bullet;
+using Db.Bullet.Impl;
 using Db.Fx;
 using Db.Fx.Impl;
 using Db.Objects;
@@ -18,9 +18,8 @@ namespace Installers.Game
         [SerializeField] private PrefabsBase prefabsBase;
         [SerializeField] private ObjectBase objectBase;
         [SerializeField] private FxObjectBase fxObjectBase;
-        [Header("Cat:")]
-        [SerializeField] private CatParametersBase catParametersBase;
-        [SerializeField] private CatInteractionParametersBase catInteractionParametersBase;
+        [Space]
+        [SerializeField] private BulletParametersBase bulletParametersBase;
         
         public override void InstallBindings()
         {
@@ -28,8 +27,7 @@ namespace Installers.Game
             Container.Bind<IObjectBase>().FromSubstitute(objectBase).AsSingle();
             Container.Bind<IFxObjectBase>().FromSubstitute(fxObjectBase).AsSingle();
             
-            Container.Bind<ICatParametersBase>().FromSubstitute(catParametersBase).AsSingle();
-            Container.Bind<ICatInteractionParametersBase>().FromSubstitute(catInteractionParametersBase).AsSingle();
+            Container.Bind<IBulletParametersBase>().FromSubstitute(bulletParametersBase).AsSingle();
         }
     }
 }

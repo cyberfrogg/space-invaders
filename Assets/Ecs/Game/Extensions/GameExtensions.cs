@@ -1,5 +1,5 @@
+using Db.Bullet;
 using Ecs.Managers;
-using Game.Utils;
 using UnityEngine;
 
 namespace Ecs.Game.Extensions
@@ -38,6 +38,22 @@ namespace Ecs.Game.Extensions
             entity.AddVelocity(Vector3.one);
 
             entity.IsPlayer = true;
+            
+            return entity;
+        }
+        
+        public static GameEntity CreateBullet(this GameContext context, Uid owner, BulletVo bulletVo, Vector3 position, Quaternion rotation)
+        {
+            var entity = context.CreateEntity();
+            entity.AddUid(UidGenerator.Next());
+            entity.AddPosition(position);
+            entity.AddRotation(rotation);
+            entity.AddVelocity(bulletVo.InitialVelocity);
+            entity.AddOwner(owner);
+            entity.AddBullet(bulletVo);
+            
+            entity.AddPrefab(bulletVo.PrefabName);
+            entity.IsInstantiate = true;
             
             return entity;
         }

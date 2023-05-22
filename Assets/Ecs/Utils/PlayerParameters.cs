@@ -1,4 +1,5 @@
 using System;
+using Db.Bullet;
 
 namespace Ecs.Utils
 {
@@ -6,5 +7,6 @@ namespace Ecs.Utils
     public struct PlayerParameters
     {
         public float Speed;
+        public EBulletType InitialActiveBulletType;
     }
 }

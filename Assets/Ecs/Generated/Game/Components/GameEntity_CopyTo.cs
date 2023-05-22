@@ -26,21 +26,17 @@ public partial class GameEntity
 		{
 			CopyObjectTypeTo(ObjectType);
 		}
-		else if (component is Ecs.Game.Components.PlayerParametersComponent PlayerParameters)
+		else if (component is Ecs.Game.Components.BulletComponent Bullet)
 		{
-			CopyPlayerParametersTo(PlayerParameters);
+			CopyBulletTo(Bullet);
 		}
-		else if (component is Ecs.Game.Components.EnemyParametersComponent EnemyParameters)
+		else if (component is Ecs.Game.Components.OwnerComponent Owner)
 		{
-			CopyEnemyParametersTo(EnemyParameters);
+			CopyOwnerTo(Owner);
 		}
-		else if (component is Ecs.Game.Components.EnemyComponent Enemy)
+		else if (component is Ecs.Game.Components.ActiveBulletTypeComponent ActiveBulletType)
 		{
-			CopyEnemyTo(Enemy);
-		}
-		else if (component is Ecs.Game.Components.HealthComponent Health)
-		{
-			CopyHealthTo(Health);
+			CopyActiveBulletTypeTo(ActiveBulletType);
 		}
 		else if (component is Ecs.Game.Components.LookDirectionComponent LookDirection)
 		{
@@ -66,6 +62,18 @@ public partial class GameEntity
 		{
 			IsPlayer = true;
 		}
+		else if (component is Ecs.Game.Components.PlayerParametersComponent PlayerParameters)
+		{
+			CopyPlayerParametersTo(PlayerParameters);
+		}
+		else if (component is Ecs.Game.Components.HealthComponent Health)
+		{
+			CopyHealthTo(Health);
+		}
+		else if (component is Ecs.Game.Components.EnemyParametersComponent EnemyParameters)
+		{
+			CopyEnemyParametersTo(EnemyParameters);
+		}
 		else if (component is Ecs.Game.Components.TransformComponent Transform)
 		{
 			CopyTransformTo(Transform);
@@ -90,6 +98,10 @@ public partial class GameEntity
 		{
 			CopyCountTo(Count);
 		}
+		else if (component is Ecs.Game.Components.EnemyComponent Enemy)
+		{
+			CopyEnemyTo(Enemy);
+		}
 		else if (component is Ecs.Game.Components.InstantiateComponent Instantiate)
 		{
 			IsInstantiate = true;
@@ -106,13 +118,9 @@ public partial class GameEntity
 		{
 			CopyObjectTypeAddedListenerTo(ObjectTypeAddedListener);
 		}
-		else if (component is HealthAddedListenerComponent HealthAddedListener)
+		else if (component is AnyActiveBulletTypeAddedListenerComponent AnyActiveBulletTypeAddedListener)
 		{
-			CopyHealthAddedListenerTo(HealthAddedListener);
-		}
-		else if (component is HealthRemovedListenerComponent HealthRemovedListener)
-		{
-			CopyHealthRemovedListenerTo(HealthRemovedListener);
+			CopyAnyActiveBulletTypeAddedListenerTo(AnyActiveBulletTypeAddedListener);
 		}
 		else if (component is PositionAddedListenerComponent PositionAddedListener)
 		{
@@ -121,6 +129,14 @@ public partial class GameEntity
 		else if (component is VelocityAddedListenerComponent VelocityAddedListener)
 		{
 			CopyVelocityAddedListenerTo(VelocityAddedListener);
+		}
+		else if (component is HealthAddedListenerComponent HealthAddedListener)
+		{
+			CopyHealthAddedListenerTo(HealthAddedListener);
+		}
+		else if (component is HealthRemovedListenerComponent HealthRemovedListener)
+		{
+			CopyHealthRemovedListenerTo(HealthRemovedListener);
 		}
 		else if (component is LocalPositionAddedListenerComponent LocalPositionAddedListener)
 		{

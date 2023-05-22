@@ -1,4 +1,5 @@
 using SimpleUi.Abstracts;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game.Ui.Player
@@ -9,5 +10,7 @@ namespace Game.Ui.Player
         public Button MoveRight;
         public Button MoveUp;
         public Button MoveDown;
+        [Space] 
+        public Button Shoot;
     }
 }

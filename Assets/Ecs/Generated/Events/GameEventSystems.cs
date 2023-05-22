@@ -11,6 +11,7 @@ public sealed class GameEventSystems : Feature
 {
 	public GameEventSystems(Contexts contexts)
 	{
+		Add(new AnyActiveBulletTypeAddedEventSystem(contexts)); // priority: 0
 		Add(new CountAddedEventSystem(contexts)); // priority: 0
 		Add(new CountRemovedEventSystem(contexts)); // priority: 0
 		Add(new GameDestroyedAddedEventSystem(contexts)); // priority: 0

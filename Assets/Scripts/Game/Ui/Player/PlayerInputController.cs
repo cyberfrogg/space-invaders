@@ -10,14 +10,17 @@ namespace Game.Ui.Player
     public class PlayerInputController : UiController<PlayerInputView>, IUiInitializable, IUpdateSystem
     {
         private readonly ActionContext _action;
+        private readonly GameContext _game;
 
         private Vector2 _previousDirection;
 
         public PlayerInputController(
-            ActionContext action
+            ActionContext action,
+            GameContext game
             )
         {
             _action = action;
+            _game = game;
         }
 
         public void Initialize()
@@ -33,6 +36,8 @@ namespace Game.Ui.Player
             
             View.MoveRight.OnPointerDownAsObservable().Subscribe(_ => { OnMove(Vector2.right); }).AddTo(View);
             View.MoveRight.OnPointerUpAsObservable().Subscribe(_ => { OnMove(Vector2.zero); }).AddTo(View);
+            
+            View.Shoot.OnPointerDownAsObservable().Subscribe(_ => { OnShoot(); }).AddTo(View);
         }
 
         public void Update()
@@ -43,6 +48,11 @@ namespace Game.Ui.Player
         private void OnMove(Vector2 direction)
         {
             _previousDirection = direction;
+        }
+
+        private void OnShoot()
+        {
+            _action.CreateEntity().AddShoot(_game.PlayerEntity.Uid.Value);
         }
     }
 }
