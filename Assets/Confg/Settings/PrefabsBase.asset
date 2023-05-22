@@ -23,3 +23,5 @@ MonoBehaviour:
     gameObject: {fileID: 6885650660833113996, guid: 1aa370a2cd2aa1baa9c05dbd3b921001, type: 3}
   - name: Bullet_Big
     gameObject: {fileID: 6098468361739923553, guid: 048fbadaacac54107bf441da4da24ffc, type: 3}
+  - name: ScoreIndicator
+    gameObject: {fileID: 1674281368622893920, guid: 47102753a357381069c44db890dcfad9, type: 3}

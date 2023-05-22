@@ -26,6 +26,10 @@ public partial class GameEntity
 		{
 			CopyObjectTypeTo(ObjectType);
 		}
+		else if (component is Ecs.Game.Components.ScoreIndicatorComponent ScoreIndicator)
+		{
+			CopyScoreIndicatorTo(ScoreIndicator);
+		}
 		else if (component is Ecs.Game.Components.LookDirectionComponent LookDirection)
 		{
 			CopyLookDirectionTo(LookDirection);
@@ -121,6 +125,10 @@ public partial class GameEntity
 		else if (component is ObjectTypeAddedListenerComponent ObjectTypeAddedListener)
 		{
 			CopyObjectTypeAddedListenerTo(ObjectTypeAddedListener);
+		}
+		else if (component is ScoreIndicatorAddedListenerComponent ScoreIndicatorAddedListener)
+		{
+			CopyScoreIndicatorAddedListenerTo(ScoreIndicatorAddedListener);
 		}
 		else if (component is PositionAddedListenerComponent PositionAddedListener)
 		{

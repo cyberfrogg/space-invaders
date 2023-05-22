@@ -39,20 +39,22 @@ public static class GameComponentsLookup
 	public const int Position = 23;
 	public const int Prefab = 24;
 	public const int Rotation = 25;
-	public const int Transform = 26;
-	public const int Uid = 27;
-	public const int Velocity = 28;
-	public const int GameDestroyedAddedListener = 29;
-	public const int HealthAddedListener = 30;
-	public const int HealthRemovedListener = 31;
-	public const int LinkRemovedListener = 32;
-	public const int LocalPositionAddedListener = 33;
-	public const int ObjectTypeAddedListener = 34;
-	public const int PositionAddedListener = 35;
-	public const int RotationAddedListener = 36;
-	public const int VelocityAddedListener = 37;
+	public const int ScoreIndicator = 26;
+	public const int Transform = 27;
+	public const int Uid = 28;
+	public const int Velocity = 29;
+	public const int GameDestroyedAddedListener = 30;
+	public const int HealthAddedListener = 31;
+	public const int HealthRemovedListener = 32;
+	public const int LinkRemovedListener = 33;
+	public const int LocalPositionAddedListener = 34;
+	public const int ObjectTypeAddedListener = 35;
+	public const int PositionAddedListener = 36;
+	public const int RotationAddedListener = 37;
+	public const int ScoreIndicatorAddedListener = 38;
+	public const int VelocityAddedListener = 39;
 
-	public const int TotalComponents = 38;
+	public const int TotalComponents = 40;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -82,6 +84,7 @@ public static class GameComponentsLookup
 		"Position",
 		"Prefab",
 		"Rotation",
+		"ScoreIndicator",
 		"Transform",
 		"Uid",
 		"Velocity",
@@ -93,6 +96,7 @@ public static class GameComponentsLookup
 		"ObjectTypeAddedListener",
 		"PositionAddedListener",
 		"RotationAddedListener",
+		"ScoreIndicatorAddedListener",
 		"VelocityAddedListener"
 	};
 
@@ -124,6 +128,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.PositionComponent),
 		typeof(Ecs.Game.Components.PrefabComponent),
 		typeof(Ecs.Game.Components.RotationComponent),
+		typeof(Ecs.Game.Components.ScoreIndicatorComponent),
 		typeof(Ecs.Game.Components.TransformComponent),
 		typeof(Ecs.Game.Components.UidComponent),
 		typeof(Ecs.Game.Components.VelocityComponent),
@@ -135,6 +140,7 @@ public static class GameComponentsLookup
 		typeof(ObjectTypeAddedListenerComponent),
 		typeof(PositionAddedListenerComponent),
 		typeof(RotationAddedListenerComponent),
+		typeof(ScoreIndicatorAddedListenerComponent),
 		typeof(VelocityAddedListenerComponent)
 	};
 
@@ -166,18 +172,20 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.PositionComponent), 23 },
 		{ typeof(Ecs.Game.Components.PrefabComponent), 24 },
 		{ typeof(Ecs.Game.Components.RotationComponent), 25 },
-		{ typeof(Ecs.Game.Components.TransformComponent), 26 },
-		{ typeof(Ecs.Game.Components.UidComponent), 27 },
-		{ typeof(Ecs.Game.Components.VelocityComponent), 28 },
-		{ typeof(GameDestroyedAddedListenerComponent), 29 },
-		{ typeof(HealthAddedListenerComponent), 30 },
-		{ typeof(HealthRemovedListenerComponent), 31 },
-		{ typeof(LinkRemovedListenerComponent), 32 },
-		{ typeof(LocalPositionAddedListenerComponent), 33 },
-		{ typeof(ObjectTypeAddedListenerComponent), 34 },
-		{ typeof(PositionAddedListenerComponent), 35 },
-		{ typeof(RotationAddedListenerComponent), 36 },
-		{ typeof(VelocityAddedListenerComponent), 37 }
+		{ typeof(Ecs.Game.Components.ScoreIndicatorComponent), 26 },
+		{ typeof(Ecs.Game.Components.TransformComponent), 27 },
+		{ typeof(Ecs.Game.Components.UidComponent), 28 },
+		{ typeof(Ecs.Game.Components.VelocityComponent), 29 },
+		{ typeof(GameDestroyedAddedListenerComponent), 30 },
+		{ typeof(HealthAddedListenerComponent), 31 },
+		{ typeof(HealthRemovedListenerComponent), 32 },
+		{ typeof(LinkRemovedListenerComponent), 33 },
+		{ typeof(LocalPositionAddedListenerComponent), 34 },
+		{ typeof(ObjectTypeAddedListenerComponent), 35 },
+		{ typeof(PositionAddedListenerComponent), 36 },
+		{ typeof(RotationAddedListenerComponent), 37 },
+		{ typeof(ScoreIndicatorAddedListenerComponent), 38 },
+		{ typeof(VelocityAddedListenerComponent), 39 }
 	};
 
 	/// <summary>

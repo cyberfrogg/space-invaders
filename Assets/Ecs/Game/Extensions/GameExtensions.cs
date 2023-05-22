@@ -73,5 +73,19 @@ namespace Ecs.Game.Extensions
             
             return entity;
         }
+        
+        public static GameEntity CreateScoreIndicator(this GameContext context, int score, Vector3 position)
+        {
+            var entity = context.CreateEntity();
+            entity.AddUid(UidGenerator.Next());
+            entity.AddPosition(position);
+            entity.AddRotation(Quaternion.identity);
+            entity.AddScoreIndicator(score);
+
+            entity.AddPrefab("ScoreIndicator");
+            entity.IsInstantiate = true;
+            
+            return entity;
+        }
     }
 }

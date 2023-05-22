@@ -7,5 +7,6 @@ namespace Ecs.Utils
     {
         public EEnemyType EnemyType;
         public float MaxHealth;
+        public int ScoreForKill;
     }
 }
