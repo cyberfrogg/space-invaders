@@ -37,7 +37,7 @@ namespace Game.Ui.Player
 
         public void Update()
         {
-            _action.CreateEntity().AddMove(_previousDirection);
+            _action.CreateEntity().AddMovePlayer(_previousDirection);
         }
         
         private void OnMove(Vector2 direction)

@@ -55,7 +55,7 @@ namespace Ecs.Installers {
 			SystemInstallHelper.Install<InstantiateSystem>(container);	// 0700 Initialization
 
 			// Move 0900
-			SystemInstallHelper.Install<MoveSystem>(container);	// 0900 Move
+			SystemInstallHelper.Install<MovePlayerSystem>(container);	// 0900 Move
 
 			// Scheduler 1970
 			SystemInstallHelper.Install<ExecuteScheduledActionSystem>(container);	// 1970 Scheduler

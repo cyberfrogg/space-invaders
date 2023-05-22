@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IMoveEntity
+public partial interface IMovePlayerEntity
 {
-	Ecs.Action.Components.MoveComponent Move { get; }
-	bool HasMove { get; }
+	Ecs.Action.Components.MovePlayerComponent MovePlayer { get; }
+	bool HasMovePlayer { get; }
 
-	void AddMove(UnityEngine.Vector2 newDirection);
-	void ReplaceMove(UnityEngine.Vector2 newDirection);
-	void RemoveMove();
+	void AddMovePlayer(UnityEngine.Vector2 newDirection);
+	void ReplaceMovePlayer(UnityEngine.Vector2 newDirection);
+	void RemoveMovePlayer();
 }

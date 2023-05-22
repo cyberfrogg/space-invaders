@@ -18,9 +18,13 @@ public partial class ActionEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Action.Components.MoveComponent Move)
+		if (component is Ecs.Action.Components.MovePlayerComponent MovePlayer)
 		{
-			CopyMoveTo(Move);
+			CopyMovePlayerTo(MovePlayer);
+		}
+		else if (component is Ecs.Action.Components.Shoot.ShootComponent Shoot)
+		{
+			CopyShootTo(Shoot);
 		}
 		else if (component is Ecs.Common.Components.DestroyedComponent Destroyed)
 		{

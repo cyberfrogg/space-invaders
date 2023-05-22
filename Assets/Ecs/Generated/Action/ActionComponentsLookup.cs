@@ -14,30 +14,34 @@ using JCMG.EntitasRedux;
 public static class ActionComponentsLookup
 {
 	public const int ActionDestroyedAddedListener = 0;
-	public const int Move = 1;
-	public const int Destroyed = 2;
+	public const int MovePlayer = 1;
+	public const int Shoot = 2;
+	public const int Destroyed = 3;
 
-	public const int TotalComponents = 3;
+	public const int TotalComponents = 4;
 
 	public static readonly string[] ComponentNames =
 	{
 		"ActionDestroyedAddedListener",
-		"Move",
+		"MovePlayer",
+		"Shoot",
 		"Destroyed"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(ActionDestroyedAddedListenerComponent),
-		typeof(Ecs.Action.Components.MoveComponent),
+		typeof(Ecs.Action.Components.MovePlayerComponent),
+		typeof(Ecs.Action.Components.Shoot.ShootComponent),
 		typeof(Ecs.Common.Components.DestroyedComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(ActionDestroyedAddedListenerComponent), 0 },
-		{ typeof(Ecs.Action.Components.MoveComponent), 1 },
-		{ typeof(Ecs.Common.Components.DestroyedComponent), 2 }
+		{ typeof(Ecs.Action.Components.MovePlayerComponent), 1 },
+		{ typeof(Ecs.Action.Components.Shoot.ShootComponent), 2 },
+		{ typeof(Ecs.Common.Components.DestroyedComponent), 3 }
 	};
 
 	/// <summary>

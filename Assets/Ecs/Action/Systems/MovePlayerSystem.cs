@@ -10,12 +10,12 @@ using UnityEngine;
 namespace Ecs.Action.Systems
 {
     [Install(ExecutionType.Game, ExecutionPriority.Normal, 900, nameof(EFeatures.Move))]
-    public class MoveSystem : AReactiveSystemWithPool<ActionEntity>
+    public class MovePlayerSystem : AReactiveSystemWithPool<ActionEntity>
     {
         private readonly GameContext _game;
         private readonly ITimeProvider _timeProvider;
 
-        public MoveSystem(
+        public MovePlayerSystem(
             ActionContext action,
             GameContext game,
             ITimeProvider timeProvider
@@ -26,10 +26,10 @@ namespace Ecs.Action.Systems
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context)
-            => context.CreateCollector(ActionMatcher.Move);
+            => context.CreateCollector(ActionMatcher.MovePlayer);
 
         protected override bool Filter(ActionEntity entity)
-            => entity.HasMove && !entity.IsDestroyed;
+            => entity.HasMovePlayer && !entity.IsDestroyed;
 
         protected override void Execute(List<ActionEntity> actions)
         {
@@ -39,7 +39,7 @@ namespace Ecs.Action.Systems
 
                 var player = _game.PlayerEntity;
                 var playerParameters = player.PlayerParameters.Value;
-                var playerVelocity = action.Move.Direction * playerParameters.Speed;
+                var playerVelocity = action.MovePlayer.Direction * playerParameters.Speed;
                 player.ReplaceVelocity(playerVelocity);
             }
         }
