@@ -26,6 +26,10 @@ public partial class ActionEntity
 		{
 			CopyMovePlayerTo(MovePlayer);
 		}
+		else if (component is Ecs.Action.Components.Shoot.CollideBulletComponent CollideBullet)
+		{
+			CopyCollideBulletTo(CollideBullet);
+		}
 		else if (component is Ecs.Action.Components.Shoot.ShootComponent Shoot)
 		{
 			CopyShootTo(Shoot);

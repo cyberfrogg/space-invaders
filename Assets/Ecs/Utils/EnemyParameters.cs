@@ -6,5 +6,6 @@ namespace Ecs.Utils
     public struct EnemyParameters
     {
         public EEnemyType EnemyType;
+        public float MaxHealth;
     }
 }

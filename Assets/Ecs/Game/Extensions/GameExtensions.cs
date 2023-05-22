@@ -1,5 +1,6 @@
 using Db.Bullet;
 using Ecs.Managers;
+using Ecs.Utils;
 using UnityEngine;
 
 namespace Ecs.Game.Extensions
@@ -29,13 +30,15 @@ namespace Ecs.Game.Extensions
             return entity;
         }
 
-        public static GameEntity CreatePlayer(this GameContext context, Vector3 position, Quaternion rotation)
+        public static GameEntity CreatePlayer(this GameContext context, PlayerParameters playerParameters, Vector3 position, Quaternion rotation)
         {
             var entity = context.CreateEntity();
             entity.AddUid(UidGenerator.Next());
             entity.AddPosition(position);
             entity.AddRotation(rotation);
             entity.AddVelocity(Vector3.one);
+            entity.AddPlayerParameters(playerParameters);
+            entity.AddActiveBulletType(playerParameters.InitialActiveBulletType);
 
             entity.IsPlayer = true;
             
@@ -54,6 +57,19 @@ namespace Ecs.Game.Extensions
             
             entity.AddPrefab(bulletVo.PrefabName);
             entity.IsInstantiate = true;
+            
+            return entity;
+        }
+        
+        public static GameEntity CreateEnemy(this GameContext context, EnemyParameters enemyParameters, Vector3 position, Quaternion rotation)
+        {
+            var entity = context.CreateEntity();
+            entity.AddUid(UidGenerator.Next());
+            entity.AddPosition(position);
+            entity.AddRotation(rotation);
+            entity.AddEnemy(enemyParameters.EnemyType);
+            entity.AddEnemyParameters(enemyParameters);
+            entity.AddHealth(enemyParameters.MaxHealth);
             
             return entity;
         }

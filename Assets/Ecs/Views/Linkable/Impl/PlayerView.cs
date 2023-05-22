@@ -1,5 +1,4 @@
 using Ecs.Utils;
-using JCMG.EntitasRedux;
 using UnityEngine;
 
 namespace Ecs.Views.Linkable.Impl
@@ -9,18 +8,7 @@ namespace Ecs.Views.Linkable.Impl
         [SerializeField] private PlayerParameters playerParameters;
         [SerializeField] private Transform bulletSpawnPoint;
 
+        public PlayerParameters PlayerParameters => playerParameters;
         public Transform BulletSpawnPoint => bulletSpawnPoint;
-        
-        private GameEntity _self;
-        
-        public override void Link(IEntity entity, IContext context)
-        {
-            _self = (GameEntity)entity;
-            
-            _self.AddPlayerParameters(playerParameters);
-            _self.AddActiveBulletType(playerParameters.InitialActiveBulletType);
-            
-            base.Link(entity, context);
-        }
     }
 }

@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Ecs.Game.Systems.Bullet
 {
-    [Install(ExecutionType.Game, ExecutionPriority.Normal, 300, nameof(EFeatures.Shoot))]
+    [Install(ExecutionType.Game, ExecutionPriority.Normal, 300, nameof(EFeatures.Shooting))]
     public class BulletMovementSystem : IUpdateSystem
     {
         private readonly ITimeProvider _timeProvider;

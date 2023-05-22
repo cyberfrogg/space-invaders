@@ -7,7 +7,7 @@ using JCMG.EntitasRedux;
 
 namespace Ecs.Action.Systems.Shoot
 {
-    [Install(ExecutionType.Game, ExecutionPriority.Normal, 2000, nameof(EFeatures.Shoot))]
+    [Install(ExecutionType.Game, ExecutionPriority.Normal, 2000, nameof(EFeatures.Shooting))]
     public class ShootDestroySystem : AReactiveSystemWithPool<ActionEntity>
     {
         public ShootDestroySystem(

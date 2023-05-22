@@ -4,6 +4,7 @@ using Ecs.Core;
 using Ecs.Game.Systems;
 using Ecs.Game.Systems.Bullet;
 using Ecs.Game.Systems.Camera;
+using Ecs.Game.Systems.Enemy;
 using Ecs.Game.Systems.Initialize;
 using Ecs.Game.Systems.Player;
 using Ecs.Scheduler.Systems;
@@ -47,18 +48,21 @@ namespace Ecs.Installers {
 		private static void Normal(DiContainer container, bool isDebug) {
  
 			// Initialization 0030
+			SystemInstallHelper.Install<EnemyInitializeSystem>(container);	// 0030 Initialization
 			SystemInstallHelper.Install<PlayerInitializeSystem>(container);	// 0030 Initialization
 
 			// Move 0300
 			SystemInstallHelper.Install<PlayerMovementSystem>(container);	// 0300 Move
-			SystemInstallHelper.Install<BulletMovementSystem>(container);	// 0300 Shoot
-			SystemInstallHelper.Install<ShootPlayerSpawnBulletSystem>(container);	// 0300 Shoot
+			SystemInstallHelper.Install<EnemyDeathSystem>(container);	// 0300 Enemy
+			SystemInstallHelper.Install<BulletMovementSystem>(container);	// 0300 Shooting
+			SystemInstallHelper.Install<ShootPlayerSpawnBulletSystem>(container);	// 0300 Shooting
 
 			// Initialization 0700
 			SystemInstallHelper.Install<InstantiateSystem>(container);	// 0700 Initialization
 
 			// Move 0900
 			SystemInstallHelper.Install<MovePlayerSystem>(container);	// 0900 Move
+			SystemInstallHelper.Install<CollideBulletSystem>(container);	// 0900 Shooting
 
 			// Scheduler 1970
 			SystemInstallHelper.Install<ExecuteScheduledActionSystem>(container);	// 1970 Scheduler
@@ -67,8 +71,8 @@ namespace Ecs.Installers {
 			SystemInstallHelper.Install<ElapsedSystem>(container);	// 1980 Scheduler
 			SystemInstallHelper.Install<IntervalSystem>(container);	// 1984 Scheduler
 
-			// Shoot 2000
-			SystemInstallHelper.Install<ShootDestroySystem>(container);	// 2000 Shoot
+			// Shooting 2000
+			SystemInstallHelper.Install<ShootDestroySystem>(container);	// 2000 Shooting
 		 }
 
 		private static void Low(DiContainer container, bool isDebug) {

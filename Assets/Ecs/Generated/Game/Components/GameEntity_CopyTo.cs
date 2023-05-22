@@ -26,6 +26,10 @@ public partial class GameEntity
 		{
 			CopyObjectTypeTo(ObjectType);
 		}
+		else if (component is Ecs.Game.Components.DeadComponent Dead)
+		{
+			IsDead = true;
+		}
 		else if (component is Ecs.Game.Components.BulletComponent Bullet)
 		{
 			CopyBulletTo(Bullet);
@@ -117,6 +121,14 @@ public partial class GameEntity
 		else if (component is ObjectTypeAddedListenerComponent ObjectTypeAddedListener)
 		{
 			CopyObjectTypeAddedListenerTo(ObjectTypeAddedListener);
+		}
+		else if (component is DeadAddedListenerComponent DeadAddedListener)
+		{
+			CopyDeadAddedListenerTo(DeadAddedListener);
+		}
+		else if (component is DeadRemovedListenerComponent DeadRemovedListener)
+		{
+			CopyDeadRemovedListenerTo(DeadRemovedListener);
 		}
 		else if (component is AnyActiveBulletTypeAddedListenerComponent AnyActiveBulletTypeAddedListener)
 		{

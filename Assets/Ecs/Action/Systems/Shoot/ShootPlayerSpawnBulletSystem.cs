@@ -8,11 +8,10 @@ using Ecs.Views.Linkable.Impl;
 using InstallerGenerator.Attributes;
 using InstallerGenerator.Enums;
 using JCMG.EntitasRedux;
-using UnityEngine;
 
 namespace Ecs.Action.Systems.Shoot
 {
-    [Install(ExecutionType.Game, ExecutionPriority.Normal, 300, nameof(EFeatures.Shoot))]
+    [Install(ExecutionType.Game, ExecutionPriority.Normal, 300, nameof(EFeatures.Shooting))]
     public class ShootPlayerSpawnBulletSystem : AReactiveSystemWithPool<ActionEntity>
     {
         private readonly GameContext _game;
@@ -43,8 +42,6 @@ namespace Ecs.Action.Systems.Shoot
             {
                 var owner = _game.GetEntityWithUid(action.Shoot.Owner);
                 
-                Debug.Log(owner);
-                
                 if (owner == null || !owner.IsPlayer)
                     continue;
                 
@@ -62,7 +59,8 @@ namespace Ecs.Action.Systems.Shoot
 
             _scheduler.CreateTimerAction(() =>
             {
-                bullet.IsDestroyed = true;
+                if(bullet.HasBullet && !bullet.IsDestroyed)
+                    bullet.IsDestroyed = true;
             }, bulletVo.DespawnDelay);
         }
     }

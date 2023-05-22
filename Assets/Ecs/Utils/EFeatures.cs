@@ -7,6 +7,7 @@ namespace Ecs.Utils
 		Camera,
 		Scheduler,
 		Move,
-		Shoot
+		Shooting,
+		Enemy
 	}
 }

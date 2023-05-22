@@ -15,15 +15,17 @@ public static class ActionComponentsLookup
 {
 	public const int ActionDestroyedAddedListener = 0;
 	public const int MovePlayer = 1;
-	public const int Shoot = 2;
-	public const int Destroyed = 3;
+	public const int CollideBullet = 2;
+	public const int Shoot = 3;
+	public const int Destroyed = 4;
 
-	public const int TotalComponents = 4;
+	public const int TotalComponents = 5;
 
 	public static readonly string[] ComponentNames =
 	{
 		"ActionDestroyedAddedListener",
 		"MovePlayer",
+		"CollideBullet",
 		"Shoot",
 		"Destroyed"
 	};
@@ -32,6 +34,7 @@ public static class ActionComponentsLookup
 	{
 		typeof(ActionDestroyedAddedListenerComponent),
 		typeof(Ecs.Action.Components.MovePlayerComponent),
+		typeof(Ecs.Action.Components.Shoot.CollideBulletComponent),
 		typeof(Ecs.Action.Components.Shoot.ShootComponent),
 		typeof(Ecs.Common.Components.DestroyedComponent)
 	};
@@ -40,8 +43,9 @@ public static class ActionComponentsLookup
 	{
 		{ typeof(ActionDestroyedAddedListenerComponent), 0 },
 		{ typeof(Ecs.Action.Components.MovePlayerComponent), 1 },
-		{ typeof(Ecs.Action.Components.Shoot.ShootComponent), 2 },
-		{ typeof(Ecs.Common.Components.DestroyedComponent), 3 }
+		{ typeof(Ecs.Action.Components.Shoot.CollideBulletComponent), 2 },
+		{ typeof(Ecs.Action.Components.Shoot.ShootComponent), 3 },
+		{ typeof(Ecs.Common.Components.DestroyedComponent), 4 }
 	};
 
 	/// <summary>

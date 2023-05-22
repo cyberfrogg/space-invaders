@@ -9,14 +9,14 @@ using Zenject;
 namespace Ecs.Game.Systems.Initialize
 {
     [Install(ExecutionType.Game, ExecutionPriority.Normal, 30, nameof(EFeatures.Initialization))]
-    public class PlayerInitializeSystem : IInitializeSystem
+    public class EnemyInitializeSystem : IInitializeSystem
     {
         private readonly GameContext _game;
         private readonly DiContainer _diContainer;
         private readonly IGameFieldProvider _gameFieldProvider;
         private readonly ILinkedEntityRepository _linkedEntityRepository;
 
-        public PlayerInitializeSystem(
+        public EnemyInitializeSystem(
             GameContext game,
             DiContainer diContainer,
             IGameFieldProvider gameFieldProvider,
@@ -28,17 +28,21 @@ namespace Ecs.Game.Systems.Initialize
             _gameFieldProvider = gameFieldProvider;
             _linkedEntityRepository = linkedEntityRepository;
         }
-
+        
         public void Initialize()
         {
-            var playerView = _gameFieldProvider.GameField.PlayerView;
-            var playerTransform = playerView.transform;
-            var player = _game.CreatePlayer(playerView.PlayerParameters, playerTransform.position, playerTransform.rotation);
+            var enemies = _gameFieldProvider.GameField.Enemies;
+
+            foreach (var enemyView in enemies)
+            {
+                var enemyTransform = enemyView.transform;
+                var enemy = _game.CreateEnemy(enemyView.EnemyParameters, enemyTransform.position, enemyTransform.rotation);
             
-            _diContainer.Inject(playerView);
-            playerView.Link(player, _game);
-            player.AddLink(playerView);
-            _linkedEntityRepository.Add(playerTransform.GetHashCode(), player);
+                _diContainer.Inject(enemyView);
+                enemyView.Link(enemy, _game);
+                enemy.AddLink(enemyView);
+                _linkedEntityRepository.Add(enemyTransform.GetHashCode(), enemy);
+            }
         }
     }
 }
