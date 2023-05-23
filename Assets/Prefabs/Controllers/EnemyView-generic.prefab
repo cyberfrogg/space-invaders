@@ -149,7 +149,7 @@ MonoBehaviour:
     EnemyType: 0
     MaxHealth: 100
     ScoreForKill: 300
-  _bulletSpawnPoint: {fileID: 0}
+    ItemDropChance: 0.38
 --- !u!61 &3633746896166864416
 BoxCollider2D:
   m_ObjectHideFlags: 0

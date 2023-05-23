@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Ecs.Utils
 {
@@ -8,5 +9,6 @@ namespace Ecs.Utils
         public EEnemyType EnemyType;
         public float MaxHealth;
         public int ScoreForKill;
+        [Range(0, 1f)] public float ItemDropChance;
     }
 }

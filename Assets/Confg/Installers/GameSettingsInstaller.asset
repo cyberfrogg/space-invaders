@@ -16,3 +16,4 @@ MonoBehaviour:
   objectBase: {fileID: 11400000, guid: 3633a91c368d140b4bdd2c2438909b51, type: 2}
   fxObjectBase: {fileID: 11400000, guid: 5d4c704d0c3a944dc8d391d915744bf0, type: 2}
   bulletParametersBase: {fileID: 11400000, guid: 41fc23857379362efa7587eae80ca88b, type: 2}
+  pickupItemsBase: {fileID: 11400000, guid: 3c2c7cbc633f57cba9ee965e086689da, type: 2}

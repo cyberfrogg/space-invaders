@@ -8,10 +8,8 @@ namespace Ecs.Views.Linkable.Impl
         IDeadAddedListener
     {
         [SerializeField] private EnemyParameters enemyParameters;
-        [SerializeField] private Transform _bulletSpawnPoint;
         
         public EnemyParameters EnemyParameters => enemyParameters;
-        public Transform BulletSpawnPoint => _bulletSpawnPoint;
         
         private GameEntity _self;
 

@@ -1,4 +1,5 @@
 using Db.Bullet;
+using Db.PickupItems;
 using Ecs.Managers;
 using Ecs.Utils;
 using UnityEngine;
@@ -53,7 +54,7 @@ namespace Ecs.Game.Extensions
             entity.AddRotation(rotation);
             entity.AddVelocity(initialVelocityDirection * bulletVo.InitialSpeed);
             entity.AddOwner(owner);
-            entity.AddBullet(bulletVo);
+            entity.AddBullet(bulletVo.Type);
             
             entity.AddPrefab(bulletVo.PrefabName);
             entity.IsInstantiate = true;
@@ -83,6 +84,21 @@ namespace Ecs.Game.Extensions
             entity.AddScoreIndicator(score);
 
             entity.AddPrefab("ScoreIndicator");
+            entity.IsInstantiate = true;
+            
+            return entity;
+        }
+        
+        public static GameEntity CreatePickupItem(this GameContext context, PickupItemVo pickupItemVo, Vector2 initialVelocityDirection, Vector3 position)
+        {
+            var entity = context.CreateEntity();
+            entity.AddUid(UidGenerator.Next());
+            entity.AddPosition(position);
+            entity.AddRotation(Quaternion.identity);
+            entity.AddPickupItem(pickupItemVo.Type);
+            entity.AddVelocity(initialVelocityDirection * pickupItemVo.InitialSpeed);
+
+            entity.AddPrefab(pickupItemVo.PrefabName);
             entity.IsInstantiate = true;
             
             return entity;

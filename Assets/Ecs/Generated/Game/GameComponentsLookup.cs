@@ -35,28 +35,29 @@ public static class GameComponentsLookup
 	public const int LookDirection = 19;
 	public const int LookPoint = 20;
 	public const int Owner = 21;
-	public const int Player = 22;
-	public const int PlayerParameters = 23;
-	public const int Position = 24;
-	public const int Prefab = 25;
-	public const int Rotation = 26;
-	public const int ScoreIndicator = 27;
-	public const int TotalScore = 28;
-	public const int Transform = 29;
-	public const int Uid = 30;
-	public const int Velocity = 31;
-	public const int GameDestroyedAddedListener = 32;
-	public const int HealthAddedListener = 33;
-	public const int HealthRemovedListener = 34;
-	public const int LinkRemovedListener = 35;
-	public const int LocalPositionAddedListener = 36;
-	public const int ObjectTypeAddedListener = 37;
-	public const int PositionAddedListener = 38;
-	public const int RotationAddedListener = 39;
-	public const int ScoreIndicatorAddedListener = 40;
-	public const int VelocityAddedListener = 41;
+	public const int PickupItem = 22;
+	public const int Player = 23;
+	public const int PlayerParameters = 24;
+	public const int Position = 25;
+	public const int Prefab = 26;
+	public const int Rotation = 27;
+	public const int ScoreIndicator = 28;
+	public const int TotalScore = 29;
+	public const int Transform = 30;
+	public const int Uid = 31;
+	public const int Velocity = 32;
+	public const int GameDestroyedAddedListener = 33;
+	public const int HealthAddedListener = 34;
+	public const int HealthRemovedListener = 35;
+	public const int LinkRemovedListener = 36;
+	public const int LocalPositionAddedListener = 37;
+	public const int ObjectTypeAddedListener = 38;
+	public const int PositionAddedListener = 39;
+	public const int RotationAddedListener = 40;
+	public const int ScoreIndicatorAddedListener = 41;
+	public const int VelocityAddedListener = 42;
 
-	public const int TotalComponents = 42;
+	public const int TotalComponents = 43;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -82,6 +83,7 @@ public static class GameComponentsLookup
 		"LookDirection",
 		"LookPoint",
 		"Owner",
+		"PickupItem",
 		"Player",
 		"PlayerParameters",
 		"Position",
@@ -128,6 +130,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.LookDirectionComponent),
 		typeof(Ecs.Game.Components.LookPointComponent),
 		typeof(Ecs.Game.Components.OwnerComponent),
+		typeof(Ecs.Game.Components.PickupItemComponent),
 		typeof(Ecs.Game.Components.PlayerComponent),
 		typeof(Ecs.Game.Components.PlayerParametersComponent),
 		typeof(Ecs.Game.Components.PositionComponent),
@@ -174,26 +177,27 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.LookDirectionComponent), 19 },
 		{ typeof(Ecs.Game.Components.LookPointComponent), 20 },
 		{ typeof(Ecs.Game.Components.OwnerComponent), 21 },
-		{ typeof(Ecs.Game.Components.PlayerComponent), 22 },
-		{ typeof(Ecs.Game.Components.PlayerParametersComponent), 23 },
-		{ typeof(Ecs.Game.Components.PositionComponent), 24 },
-		{ typeof(Ecs.Game.Components.PrefabComponent), 25 },
-		{ typeof(Ecs.Game.Components.RotationComponent), 26 },
-		{ typeof(Ecs.Game.Components.ScoreIndicatorComponent), 27 },
-		{ typeof(Ecs.Game.Components.TotalScoreComponent), 28 },
-		{ typeof(Ecs.Game.Components.TransformComponent), 29 },
-		{ typeof(Ecs.Game.Components.UidComponent), 30 },
-		{ typeof(Ecs.Game.Components.VelocityComponent), 31 },
-		{ typeof(GameDestroyedAddedListenerComponent), 32 },
-		{ typeof(HealthAddedListenerComponent), 33 },
-		{ typeof(HealthRemovedListenerComponent), 34 },
-		{ typeof(LinkRemovedListenerComponent), 35 },
-		{ typeof(LocalPositionAddedListenerComponent), 36 },
-		{ typeof(ObjectTypeAddedListenerComponent), 37 },
-		{ typeof(PositionAddedListenerComponent), 38 },
-		{ typeof(RotationAddedListenerComponent), 39 },
-		{ typeof(ScoreIndicatorAddedListenerComponent), 40 },
-		{ typeof(VelocityAddedListenerComponent), 41 }
+		{ typeof(Ecs.Game.Components.PickupItemComponent), 22 },
+		{ typeof(Ecs.Game.Components.PlayerComponent), 23 },
+		{ typeof(Ecs.Game.Components.PlayerParametersComponent), 24 },
+		{ typeof(Ecs.Game.Components.PositionComponent), 25 },
+		{ typeof(Ecs.Game.Components.PrefabComponent), 26 },
+		{ typeof(Ecs.Game.Components.RotationComponent), 27 },
+		{ typeof(Ecs.Game.Components.ScoreIndicatorComponent), 28 },
+		{ typeof(Ecs.Game.Components.TotalScoreComponent), 29 },
+		{ typeof(Ecs.Game.Components.TransformComponent), 30 },
+		{ typeof(Ecs.Game.Components.UidComponent), 31 },
+		{ typeof(Ecs.Game.Components.VelocityComponent), 32 },
+		{ typeof(GameDestroyedAddedListenerComponent), 33 },
+		{ typeof(HealthAddedListenerComponent), 34 },
+		{ typeof(HealthRemovedListenerComponent), 35 },
+		{ typeof(LinkRemovedListenerComponent), 36 },
+		{ typeof(LocalPositionAddedListenerComponent), 37 },
+		{ typeof(ObjectTypeAddedListenerComponent), 38 },
+		{ typeof(PositionAddedListenerComponent), 39 },
+		{ typeof(RotationAddedListenerComponent), 40 },
+		{ typeof(ScoreIndicatorAddedListenerComponent), 41 },
+		{ typeof(VelocityAddedListenerComponent), 42 }
 	};
 
 	/// <summary>

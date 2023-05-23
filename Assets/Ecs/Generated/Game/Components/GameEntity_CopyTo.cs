@@ -26,6 +26,10 @@ public partial class GameEntity
 		{
 			CopyObjectTypeTo(ObjectType);
 		}
+		else if (component is Ecs.Game.Components.PickupItemComponent PickupItem)
+		{
+			CopyPickupItemTo(PickupItem);
+		}
 		else if (component is Ecs.Game.Components.LookDirectionComponent LookDirection)
 		{
 			CopyLookDirectionTo(LookDirection);

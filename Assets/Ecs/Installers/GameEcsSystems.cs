@@ -6,6 +6,7 @@ using Ecs.Game.Systems.Bullet;
 using Ecs.Game.Systems.Camera;
 using Ecs.Game.Systems.Enemy;
 using Ecs.Game.Systems.Initialize;
+using Ecs.Game.Systems.PickupItems;
 using Ecs.Game.Systems.Player;
 using Ecs.Scheduler.Systems;
 using Ecs.Signal.Systems;
@@ -51,19 +52,21 @@ namespace Ecs.Installers {
 			SystemInstallHelper.Install<EnemyInitializeSystem>(container);	// 0030 Initialization
 			SystemInstallHelper.Install<PlayerInitializeSystem>(container);	// 0030 Initialization
 
-			// Move 0300
+			// PickupItems 0300
+			SystemInstallHelper.Install<PickupItemsMovementSystem>(container);	// 0300 PickupItems
 			SystemInstallHelper.Install<PlayerMovementSystem>(container);	// 0300 Move
+			SystemInstallHelper.Install<PickupItemSystem>(container);	// 0300 PickupItems
+			SystemInstallHelper.Install<PlayerShootSystem>(container);	// 0300 Shooting
 			SystemInstallHelper.Install<EnemyDeathSystem>(container);	// 0300 Enemy
 			SystemInstallHelper.Install<BulletMovementSystem>(container);	// 0300 Shooting
 			SystemInstallHelper.Install<ChangeScoreSystem>(container);	// 0300 Common
-			SystemInstallHelper.Install<PlayerShootSystem>(container);	// 0300 Shooting
 
 			// Initialization 0700
 			SystemInstallHelper.Install<InstantiateSystem>(container);	// 0700 Initialization
 
-			// Move 0900
-			SystemInstallHelper.Install<MovePlayerSystem>(container);	// 0900 Move
+			// Shooting 0900
 			SystemInstallHelper.Install<CollideBulletSystem>(container);	// 0900 Shooting
+			SystemInstallHelper.Install<MovePlayerSystem>(container);	// 0900 Move
 
 			// Scheduler 1970
 			SystemInstallHelper.Install<ExecuteScheduledActionSystem>(container);	// 1970 Scheduler

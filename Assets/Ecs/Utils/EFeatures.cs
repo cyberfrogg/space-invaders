@@ -8,6 +8,7 @@ namespace Ecs.Utils
 		Scheduler,
 		Move,
 		Shooting,
-		Enemy
+		Enemy,
+		PickupItems
 	}
 }

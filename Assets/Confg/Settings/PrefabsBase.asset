@@ -25,3 +25,7 @@ MonoBehaviour:
     gameObject: {fileID: 6098468361739923553, guid: 048fbadaacac54107bf441da4da24ffc, type: 3}
   - name: ScoreIndicator
     gameObject: {fileID: 1674281368622893920, guid: 47102753a357381069c44db890dcfad9, type: 3}
+  - name: PickupItem_SmallBullet
+    gameObject: {fileID: 4827498270056235365, guid: 2b60bacf89af7a12c8e7112b9ad63b72, type: 3}
+  - name: PickupItem_BigBullet
+    gameObject: {fileID: 6811688844343735079, guid: f3437e49bb6bb166da614cc90cfa45a1, type: 3}

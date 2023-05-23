@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IBulletEntity
+public partial interface IPickupItemEntity
 {
-	Ecs.Game.Components.BulletComponent Bullet { get; }
-	bool HasBullet { get; }
+	Ecs.Game.Components.PickupItemComponent PickupItem { get; }
+	bool HasPickupItem { get; }
 
-	void AddBullet(Db.Bullet.EBulletType newType);
-	void ReplaceBullet(Db.Bullet.EBulletType newType);
-	void RemoveBullet();
+	void AddPickupItem(Db.PickupItems.EPickupItemType newType);
+	void ReplacePickupItem(Db.PickupItems.EPickupItemType newType);
+	void RemovePickupItem();
 }

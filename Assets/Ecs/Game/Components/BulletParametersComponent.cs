@@ -6,6 +6,6 @@ namespace Ecs.Game.Components
     [Game]
     public class BulletComponent : IComponent
     {
-        public BulletVo BulletVo;
+        public EBulletType Type;
     }
 }

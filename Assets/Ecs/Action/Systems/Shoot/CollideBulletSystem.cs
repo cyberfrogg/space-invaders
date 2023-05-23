@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Db.Bullet;
 using Ecs.Core.Systems;
 using Ecs.Utils;
 using InstallerGenerator.Attributes;
@@ -11,13 +12,16 @@ namespace Ecs.Action.Systems.Shoot
     public class CollideBulletSystem : AReactiveSystemWithPool<ActionEntity>
     {
         private readonly ILinkedEntityRepository _linkedEntityRepository;
+        private readonly IBulletParametersBase _bulletParametersBase;
 
         public CollideBulletSystem(
             ActionContext action,
-            ILinkedEntityRepository linkedEntityRepository
+            ILinkedEntityRepository linkedEntityRepository,
+            IBulletParametersBase bulletParametersBase
             ) : base(action)
         {
             _linkedEntityRepository = linkedEntityRepository;
+            _bulletParametersBase = bulletParametersBase;
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context)
@@ -48,7 +52,8 @@ namespace Ecs.Action.Systems.Shoot
         private void OnCollision(GameEntity bullet, GameEntity other)
         {
             var otherHealth = other.Health.Value;
-            otherHealth -= bullet.Bullet.BulletVo.Damage;
+            var bulletVo = _bulletParametersBase.GetBullet(bullet.Bullet.Type);
+            otherHealth -= bulletVo.Damage;
             other.ReplaceHealth(otherHealth);
 
             bullet.IsDestroyed = true;

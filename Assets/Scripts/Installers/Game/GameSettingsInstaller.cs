@@ -4,6 +4,8 @@ using Db.Fx;
 using Db.Fx.Impl;
 using Db.Objects;
 using Db.Objects.Impl;
+using Db.PickupItems;
+using Db.PickupItems.Impl;
 using Db.Prefabs;
 using Db.Prefabs.Impls;
 using UnityEngine;
@@ -20,6 +22,7 @@ namespace Installers.Game
         [SerializeField] private FxObjectBase fxObjectBase;
         [Space]
         [SerializeField] private BulletParametersBase bulletParametersBase;
+        [SerializeField] private PickupItemsBase pickupItemsBase;
         
         public override void InstallBindings()
         {
@@ -28,6 +31,7 @@ namespace Installers.Game
             Container.Bind<IFxObjectBase>().FromSubstitute(fxObjectBase).AsSingle();
             
             Container.Bind<IBulletParametersBase>().FromSubstitute(bulletParametersBase).AsSingle();
+            Container.Bind<IPickupItemsBase>().FromSubstitute(pickupItemsBase).AsSingle();
         }
     }
 }
