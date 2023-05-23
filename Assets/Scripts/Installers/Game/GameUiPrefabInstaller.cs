@@ -1,4 +1,5 @@
 using Game.Ui.Player;
+using Game.Ui.TotalScore;
 using SimpleUi;
 using UnityEngine;
 using Zenject;
@@ -12,6 +13,7 @@ namespace Installers.Game
         [SerializeField] private Canvas canvas;
 
         [SerializeField] private PlayerInputView playerInputView;
+        [SerializeField] private TotalScoreView totalScoreView;
 
         public override void InstallBindings()
         {
@@ -21,6 +23,7 @@ namespace Installers.Game
             var camera = canvasTransform.GetComponentInChildren<Camera>();
             
             Container.BindUiView<PlayerInputController, PlayerInputView>(playerInputView, canvasTransform);
+            Container.BindUiView<TotalScoreController, TotalScoreView>(totalScoreView, canvasTransform);
         }
     }
 }

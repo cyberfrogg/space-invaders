@@ -31,9 +31,10 @@ namespace Ecs.Game.Systems.Initialize
 		{
 			Debug.Log("GameInitializeSystem");
 
+			_game.SetTotalScore(0);
+
 			_signal.CreateEntity().IsSignalStart = true;
 			_signalBus.OpenWindow<GameHudWindow>();
-			
 		}
 	}
 }

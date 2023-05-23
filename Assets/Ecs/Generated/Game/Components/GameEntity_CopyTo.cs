@@ -26,10 +26,6 @@ public partial class GameEntity
 		{
 			CopyObjectTypeTo(ObjectType);
 		}
-		else if (component is Ecs.Game.Components.ScoreIndicatorComponent ScoreIndicator)
-		{
-			CopyScoreIndicatorTo(ScoreIndicator);
-		}
 		else if (component is Ecs.Game.Components.LookDirectionComponent LookDirection)
 		{
 			CopyLookDirectionTo(LookDirection);
@@ -65,6 +61,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.HealthComponent Health)
 		{
 			CopyHealthTo(Health);
+		}
+		else if (component is Ecs.Game.Components.TotalScoreComponent TotalScore)
+		{
+			CopyTotalScoreTo(TotalScore);
 		}
 		else if (component is Ecs.Game.Components.DeadComponent Dead)
 		{
@@ -118,6 +118,10 @@ public partial class GameEntity
 		{
 			CopyLookPointTo(LookPoint);
 		}
+		else if (component is Ecs.Game.Components.ScoreIndicatorComponent ScoreIndicator)
+		{
+			CopyScoreIndicatorTo(ScoreIndicator);
+		}
 		else if (component is GameDestroyedAddedListenerComponent GameDestroyedAddedListener)
 		{
 			CopyGameDestroyedAddedListenerTo(GameDestroyedAddedListener);
@@ -125,10 +129,6 @@ public partial class GameEntity
 		else if (component is ObjectTypeAddedListenerComponent ObjectTypeAddedListener)
 		{
 			CopyObjectTypeAddedListenerTo(ObjectTypeAddedListener);
-		}
-		else if (component is ScoreIndicatorAddedListenerComponent ScoreIndicatorAddedListener)
-		{
-			CopyScoreIndicatorAddedListenerTo(ScoreIndicatorAddedListener);
 		}
 		else if (component is PositionAddedListenerComponent PositionAddedListener)
 		{
@@ -145,6 +145,10 @@ public partial class GameEntity
 		else if (component is HealthRemovedListenerComponent HealthRemovedListener)
 		{
 			CopyHealthRemovedListenerTo(HealthRemovedListener);
+		}
+		else if (component is AnyTotalScoreAddedListenerComponent AnyTotalScoreAddedListener)
+		{
+			CopyAnyTotalScoreAddedListenerTo(AnyTotalScoreAddedListener);
 		}
 		else if (component is DeadAddedListenerComponent DeadAddedListener)
 		{
@@ -177,6 +181,10 @@ public partial class GameEntity
 		else if (component is CountRemovedListenerComponent CountRemovedListener)
 		{
 			CopyCountRemovedListenerTo(CountRemovedListener);
+		}
+		else if (component is ScoreIndicatorAddedListenerComponent ScoreIndicatorAddedListener)
+		{
+			CopyScoreIndicatorAddedListenerTo(ScoreIndicatorAddedListener);
 		}
 		#endif
 	}

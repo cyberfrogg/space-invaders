@@ -13,12 +13,15 @@ namespace Ecs.Game.Systems.Enemy
     public class EnemyDeathSystem : AReactiveSystemWithPool<GameEntity>
     {
         private readonly GameContext _game;
+        private readonly ActionContext _action;
 
         public EnemyDeathSystem(
-            GameContext game
+            GameContext game,
+            ActionContext action
             ) : base(game)
         {
             _game = game;
+            _action = action;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -35,6 +38,7 @@ namespace Ecs.Game.Systems.Enemy
                 {
                     enemy.IsDead = true;
 
+                    _action.CreateEntity().AddChangeScore(enemy.EnemyParameters.Value.ScoreForKill);
                     _game.CreateScoreIndicator(enemy.EnemyParameters.Value.ScoreForKill, enemy.Position.Value + (Vector3.up * 2));
                 }
             }

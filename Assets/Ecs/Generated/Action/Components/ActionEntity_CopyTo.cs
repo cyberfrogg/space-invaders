@@ -22,6 +22,10 @@ public partial class ActionEntity
 		{
 			IsDestroyed = true;
 		}
+		else if (component is Ecs.Action.Components.ChangeScoreComponent ChangeScore)
+		{
+			CopyChangeScoreTo(ChangeScore);
+		}
 		else if (component is Ecs.Action.Components.MovePlayerComponent MovePlayer)
 		{
 			CopyMovePlayerTo(MovePlayer);

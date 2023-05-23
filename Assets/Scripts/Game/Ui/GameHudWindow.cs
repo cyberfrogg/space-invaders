@@ -1,4 +1,5 @@
 using Game.Ui.Player;
+using Game.Ui.TotalScore;
 using SimpleUi;
 
 namespace Game.Ui
@@ -10,6 +11,7 @@ namespace Game.Ui
         protected override void AddControllers()
         {
             AddController<PlayerInputController>();
+            AddController<TotalScoreController>();
         }
     }
 }

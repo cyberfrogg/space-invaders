@@ -14,16 +14,18 @@ using JCMG.EntitasRedux;
 public static class ActionComponentsLookup
 {
 	public const int ActionDestroyedAddedListener = 0;
-	public const int MovePlayer = 1;
-	public const int CollideBullet = 2;
-	public const int Shoot = 3;
-	public const int Destroyed = 4;
+	public const int ChangeScore = 1;
+	public const int MovePlayer = 2;
+	public const int CollideBullet = 3;
+	public const int Shoot = 4;
+	public const int Destroyed = 5;
 
-	public const int TotalComponents = 5;
+	public const int TotalComponents = 6;
 
 	public static readonly string[] ComponentNames =
 	{
 		"ActionDestroyedAddedListener",
+		"ChangeScore",
 		"MovePlayer",
 		"CollideBullet",
 		"Shoot",
@@ -33,6 +35,7 @@ public static class ActionComponentsLookup
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(ActionDestroyedAddedListenerComponent),
+		typeof(Ecs.Action.Components.ChangeScoreComponent),
 		typeof(Ecs.Action.Components.MovePlayerComponent),
 		typeof(Ecs.Action.Components.Shoot.CollideBulletComponent),
 		typeof(Ecs.Action.Components.Shoot.ShootComponent),
@@ -42,10 +45,11 @@ public static class ActionComponentsLookup
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(ActionDestroyedAddedListenerComponent), 0 },
-		{ typeof(Ecs.Action.Components.MovePlayerComponent), 1 },
-		{ typeof(Ecs.Action.Components.Shoot.CollideBulletComponent), 2 },
-		{ typeof(Ecs.Action.Components.Shoot.ShootComponent), 3 },
-		{ typeof(Ecs.Common.Components.DestroyedComponent), 4 }
+		{ typeof(Ecs.Action.Components.ChangeScoreComponent), 1 },
+		{ typeof(Ecs.Action.Components.MovePlayerComponent), 2 },
+		{ typeof(Ecs.Action.Components.Shoot.CollideBulletComponent), 3 },
+		{ typeof(Ecs.Action.Components.Shoot.ShootComponent), 4 },
+		{ typeof(Ecs.Common.Components.DestroyedComponent), 5 }
 	};
 
 	/// <summary>

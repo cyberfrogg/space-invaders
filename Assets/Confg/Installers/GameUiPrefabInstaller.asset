@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 223224693220343330, guid: 319a2f54ade3772468c5e0fe99627021, type: 3}
   playerInputView: {fileID: 5745299069674544881, guid: b00e5f34b0fd21f90a8871683a42afb7, type: 3}
+  totalScoreView: {fileID: 215047429601626431, guid: 2e96c2ec57b23095c8d4aa9471e6a2e2, type: 3}
