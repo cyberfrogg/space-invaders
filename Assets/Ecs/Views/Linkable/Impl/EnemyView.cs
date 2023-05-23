@@ -5,7 +5,8 @@ using UnityEngine;
 namespace Ecs.Views.Linkable.Impl
 {
     public class EnemyView : ObjectView,
-        IDeadAddedListener
+        IDeadAddedListener,
+        IDeadRemovedListener
     {
         [SerializeField] private EnemyParameters enemyParameters;
         
@@ -20,11 +21,17 @@ namespace Ecs.Views.Linkable.Impl
             base.Link(entity, context);
             
             _self.AddDeadAddedListener(this);
+            _self.AddDeadRemovedListener(this);
         }
 
         public void OnDeadAdded(GameEntity entity)
         {
             gameObject.SetActive(false);
+        }
+
+        public void OnDeadRemoved(GameEntity entity)
+        {
+            gameObject.SetActive(true);
         }
     }
 }

@@ -52,12 +52,13 @@ namespace Ecs.Installers {
 			SystemInstallHelper.Install<EnemyInitializeSystem>(container);	// 0030 Initialization
 			SystemInstallHelper.Install<PlayerInitializeSystem>(container);	// 0030 Initialization
 
-			// PickupItems 0300
-			SystemInstallHelper.Install<PickupItemsMovementSystem>(container);	// 0300 PickupItems
+			// Move 0300
 			SystemInstallHelper.Install<PlayerMovementSystem>(container);	// 0300 Move
 			SystemInstallHelper.Install<PickupItemSystem>(container);	// 0300 PickupItems
+			SystemInstallHelper.Install<PickupItemsMovementSystem>(container);	// 0300 PickupItems
 			SystemInstallHelper.Install<PlayerShootSystem>(container);	// 0300 Shooting
 			SystemInstallHelper.Install<EnemyDeathSystem>(container);	// 0300 Enemy
+			SystemInstallHelper.Install<RespawnEnemySystem>(container);	// 0300 PickupItems
 			SystemInstallHelper.Install<BulletMovementSystem>(container);	// 0300 Shooting
 			SystemInstallHelper.Install<ChangeScoreSystem>(container);	// 0300 Common
 
