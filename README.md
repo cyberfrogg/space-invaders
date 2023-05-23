@@ -10,9 +10,9 @@ Features:
 4. Press Run button
 
 ## FAQ
-Q: Where are all systems and components?
-A: /Ecs/Game & /Ecs/Actions
-Q: Where are all services, data structs and utils?
-A: /Scripts/Game
-Q: Can I contribute?
-A: Yes
+* Q: Where are all systems and components?
+* A: /Ecs/Game & /Ecs/Actions
+* Q: Where are all services, data structs and utils?
+* A: /Scripts/Game
+* Q: Can I contribute?
+* A: Yes
